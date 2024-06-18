@@ -1,5 +1,6 @@
 package com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers;
 
+import com.ucen.vetclinicjavafx.vetclinicjavafx.app.entities.Customer;
 import com.ucen.vetclinicjavafx.vetclinicjavafx.app.factories.AccountManager;
 import com.ucen.vetclinicjavafx.vetclinicjavafx.app.services.CustomerService;
 import com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.core.BaseViewController;
@@ -24,5 +25,11 @@ public class UserLoginScreenController extends BaseViewController {
         emailId.setText("test@gmail.com");
     }
 
+    @FXML
+    public void setUserAccountAndLogin() {
+        String email = emailId.getText();
+        Customer customer = customerService.getOrCreateCustomerByEmailId(email);
+        accountManager.setCurrentCustomer(customer);
+    }
 
 }

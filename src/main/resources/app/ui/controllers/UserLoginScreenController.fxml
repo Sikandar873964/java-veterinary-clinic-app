@@ -6,7 +6,7 @@
 <?import javafx.geometry.Insets?>
 <AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"  xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1"
-            >
+            fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.UserLoginScreenController">
     <padding>
         <Insets top="20" left="20" right="20" bottom="20"></Insets>
     </padding>
@@ -27,7 +27,7 @@
             <TextField fx:id="emailId"/>
         </HBox>
         <HBox>
-            <Button  text="Login"/>
+            <Button onAction="#setUserAccountAndLogin" text="Login"/>
         </HBox>
     </VBox>
 
