@@ -1,6 +1,7 @@
 package com.ucen.vetclinicjavafx.vetclinicjavafx.app;
 
 import com.ucen.vetclinicjavafx.vetclinicjavafx.VetClinincApplication;
+import com.ucen.vetclinicjavafx.vetclinicjavafx.app.events.models.StageReadyEvent;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -44,7 +45,7 @@ public class VetClinicSpringBootJavaFXApplication extends Application {
 
 //        HospitalService hospitalService=context.getBean(HospitalService.class);
 //        hospitalService.list();
-//        context.publishEvent(new StageReadyEvent( primaryStage)); //(2)
+        context.publishEvent(new StageReadyEvent( primaryStage)); //(2)
     }
 
     @Override
