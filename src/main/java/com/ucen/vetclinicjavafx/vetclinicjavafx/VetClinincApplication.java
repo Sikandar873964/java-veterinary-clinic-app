@@ -1,6 +1,6 @@
 package com.ucen.vetclinicjavafx.vetclinicjavafx;
 
-
+import com.ucen.vetclinicjavafx.vetclinicjavafx.app.VetClinicSpringBootJavaFXApplication;
 import javafx.application.Application;
 import net.rgielen.fxweaver.core.FxControllerAndView;
 import net.rgielen.fxweaver.core.FxWeaver;
@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Scope;
 public class VetClinincApplication {
 
     public static void main(String[] args) {
+        Application.launch(VetClinicSpringBootJavaFXApplication.class, args); //(1)
     }
 
     @Bean

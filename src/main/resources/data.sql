@@ -1,0 +1,2 @@
+INSERT INTO CUSTOMERS(CUSTOMER_ID,CREATED_TIME,CUSTOMER_EMAIL_ID,CUSTOMER_NAME,LAST_UPDATED_TIME)
+values (1,current_time,'test@gmail.com','Test',current_time);
