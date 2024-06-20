@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"  xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.AllHospitalsScreenController">
+    <padding>
+        <Insets top="20" left="20" right="20" bottom="20"></Insets>
+    </padding>
+    <VBox spacing="10">
+        <padding>
+            <Insets top="20" left="20" right="20" bottom="20"></Insets>
+        </padding>
+        <HBox spacing="5">
+            <Label  text="Hospitals" underline="true">
+                <font>
+                    <Font name="System Bold" size="30.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox spacing="5">
+            <Button text="My Bookings" onAction="#navigateToScreen" userData="MY_BOOKINGS_SCREEN"></Button>
+            <Button text="Create Animal" onAction="#navigateToScreen" userData="CREATE_ANIMAL_SCREEN"></Button>
+            <Button text="Create Hospital" onAction="#navigateToScreen" userData="CREATE_HOSPITAL_SCREEN"></Button>
+            <Button text="All Hospitals" onAction="#navigateToScreen" userData="ALL_HOSPITALS_SCREEN"></Button>
+        </HBox>
+        <HBox spacing="5">
+                <TableView fx:id="hospitalsTableView" HBox.hgrow="ALWAYS">
+                    <columns>
+                        <TableColumn  text="Hospital Name" fx:id="hospitalStringTableColumn"/>
+                        <TableColumn  text="Start Time" fx:id="hospitalStartTimeTableColumn"/>
+                        <TableColumn  text="End Time" fx:id="hospitalEndTimeTableColumn"/>
+                    </columns>
+                </TableView>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

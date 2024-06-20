@@ -32,6 +32,8 @@ public class UserLoginScreenController extends BaseViewController {
         String email = emailId.getText();
         Customer customer = customerService.getOrCreateCustomerByEmailId(email);
         accountManager.setCurrentCustomer(customer);
-//        stageManager.changeScene(stageManager.getControllerScene(AllHospitalsScreenController.class));
+        stageManager.changeScene(stageManager.getControllerScene(AllHospitalsScreenController.class));
     }
+
+
 }
