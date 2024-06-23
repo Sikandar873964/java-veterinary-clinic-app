@@ -65,6 +65,7 @@ public class AllHospitalsScreenController extends BaseViewController {
         hospitalsObservableList.addAll(hospitals.getContent());
     }
 
+
     @FXML
     public void navigateToAllHospitalsScreen() {
         stageManager.changeScene(stageManager.getControllerScene(AllHospitalsScreenController.class));
