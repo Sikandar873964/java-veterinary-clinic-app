@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.MyBookingsScreenController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <VBox spacing="10">
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
+        <HBox>
+            <Label text="My Bookings Screen">
+                <font>
+                    <Font name="System Bold" size="30.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox spacing="5">
+            <Button text="My Bookings" onAction="#navigateToScreen" userData="MY_BOOKINGS_SCREEN"></Button>
+            <Button text="Create Animal" onAction="#navigateToScreen" userData="CREATE_ANIMAL_SCREEN"></Button>
+            <Button text="Create Hospital" onAction="#navigateToScreen" userData="CREATE_HOSPITAL_SCREEN"></Button>
+            <Button text="All Hospitals" onAction="#navigateToScreen" userData="ALL_HOSPITALS_SCREEN"></Button>
+        </HBox>
+        <HBox>
+<!--            <Region gro-->
+            <TableView HBox.hgrow="ALWAYS" fx:id="hospitalBookingsTableView">
+                <columns>
+                    <TableColumn fx:id="customerTableColumn" text="Customer" />
+                    <TableColumn fx:id="hospitalNameTableColumn" text="Hospital Name" />
+                    <TableColumn fx:id="hospitalBookingStartTimeTableColumn" text="Start Time" />
+                    <TableColumn fx:id="hospitalBookingEndTimeTableColumn" text="End Time" />
+                    <TableColumn fx:id="priceColumn" text="Price" />
+                </columns>
+            <columnResizePolicy>
+               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            </TableView>
+        </HBox>
+    </VBox>
+
+</AnchorPane>
