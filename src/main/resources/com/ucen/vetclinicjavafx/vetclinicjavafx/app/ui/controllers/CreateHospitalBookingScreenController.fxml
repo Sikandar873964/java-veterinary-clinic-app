@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.CreateHospitalBookingScreenController">
+    <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
+        <VBox spacing="10">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <HBox spacing="5">
+                <Label text="Create Booking">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                </Label>
+            </HBox>
+            <HBox spacing="5">
+                <Button onAction="#navigateToScreen" text="My Bookings" userData="MY_BOOKINGS_SCREEN" />
+                <Button onAction="#navigateToScreen" text="Create Animal" userData="CREATE_ANIMAL_SCREEN" />
+                <Button onAction="#navigateToScreen" text="Create Hospital" userData="CREATE_HOSPITAL_SCREEN" />
+                <Button onAction="#navigateToScreen" text="All Hospitals" userData="ALL_HOSPITALS_SCREEN" />
+            </HBox>
+            <HBox spacing="5">
+                <Label text="Start Time" />
+                <!-- DatePicker for selecting the date -->
+                <DatePicker fx:id="startDatePicker" />
+
+                <!-- Spinner for selecting hours -->
+                <Spinner fx:id="startTimeHourSpinner" maxWidth="100" />
+
+                <!-- Spinner for selecting minutes -->
+                <Spinner fx:id="startTimeMinuteSpinner" maxWidth="100" />
+            </HBox>
+            <HBox spacing="5">
+                <Label text="End Time" />
+                <!-- DatePicker for selecting the date -->
+                <DatePicker fx:id="endDatePicker" />
+
+                <!-- Spinner for selecting hours -->
+                <Spinner fx:id="endTimeHourSpinner" maxWidth="100" />
+
+                <!-- Spinner for selecting minutes -->
+                <Spinner fx:id="endTimeMinuteSpinner" maxWidth="100" />
+            </HBox>
+            <HBox spacing="5">
+                <VBox>
+                    <HBox spacing="5">
+                        <Label>Animal</Label>
+                        <ChoiceBox fx:id="animalChoiceBox">
+                        </ChoiceBox>
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label>Reason</Label>
+                        <TextArea fx:id="reasonTextArea" />
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label>Need Additional assistant</Label>
+                        <CheckBox fx:id="needsAdditionalAssistant" />
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label>Additional Surcharge</Label>
+                        <CheckBox fx:id="additionalSurCharge" />
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label>Long Distance</Label>
+                        <CheckBox fx:id="longDistance" />
+                    </HBox>
+                    <HBox spacing="5">
+                        <Button onAction="#addHospitalBookingItem" text="Add Item" />
+                    </HBox>
+                </VBox>
+            </HBox>
+            <HBox spacing="5">
+                <TableView fx:id="hospitalBookingItemsTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="601.0">
+                    <columns>
+                        <TableColumn fx:id="animalColumn" text="Animal" />
+                        <TableColumn fx:id="reasonColumn" prefWidth="69.99996948242188" text="Reason" />
+                        <TableColumn fx:id="needsAdditionalAssistantColumn" prefWidth="162.59999084472656" text="Needs Additional Assistant" />
+                        <TableColumn fx:id="additionalSurChargeColumn" prefWidth="133.4000244140625" text="Additional Surcharge" />
+                        <TableColumn fx:id="longDistanceColumn" prefWidth="93.20001220703125" text="Long Distance" />
+                        <TableColumn fx:id="priceColumn" prefWidth="66.0" text="Price" />
+                    </columns>
+                </TableView>
+            </HBox>
+            <HBox spacing="5">
+                <Button onAction="#createHospitalBooking" text="Confirm booking" />
+            </HBox>
+        </VBox>
+
+    </AnchorPane>
+</ScrollPane>

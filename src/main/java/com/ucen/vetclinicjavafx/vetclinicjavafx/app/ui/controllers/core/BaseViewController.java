@@ -1,11 +1,13 @@
 package com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.core;
 
+import com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.MyBookingsScreenController;
 import com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.managers.StageManager;
 import com.ucen.vetclinicjavafx.vetclinicjavafx.app.utils.DateTimeUtils;
 import jakarta.annotation.PostConstruct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BaseViewController {
