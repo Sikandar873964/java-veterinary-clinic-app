@@ -51,6 +51,9 @@ public class AllHospitalsScreenController extends BaseViewController {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Hospital rowData = row.getItem();
                     accountManager.setCurrentHospital(rowData);
+
+                    stageManager.changeScene(
+                            stageManager.getControllerScene(CreateHospitalBookingScreenController.class));
                 }
             });
             return row;
@@ -65,6 +68,15 @@ public class AllHospitalsScreenController extends BaseViewController {
         hospitalsObservableList.addAll(hospitals.getContent());
     }
 
+    @FXML
+    public void navigateToMyBookingsScreen() {
+        stageManager.changeScene(stageManager.getControllerScene(MyBookingsScreenController.class));
+    }
+
+    @FXML
+    public void navigateToAllAnimalsScreen() {
+        stageManager.changeScene(stageManager.getControllerScene(AllAnimalsScreenController.class));
+    }
 
     @FXML
     public void navigateToAllHospitalsScreen() {
