@@ -2,6 +2,7 @@ package com.ucen.vetclinicjavafx.vetclinicjavafx.app;
 
 import com.ucen.vetclinicjavafx.vetclinicjavafx.VetClinincApplication;
 import com.ucen.vetclinicjavafx.vetclinicjavafx.app.events.models.StageReadyEvent;
+import com.ucen.vetclinicjavafx.vetclinicjavafx.app.services.HospitalService;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -43,7 +44,7 @@ public class VetClinicSpringBootJavaFXApplication extends Application {
 //        stage.setScene(scene);
 //        stage.show();
 
-//        HospitalService hospitalService=context.getBean(HospitalService.class);
+        HospitalService hospitalService=context.getBean(HospitalService.class);
 //        hospitalService.list();
         context.publishEvent(new StageReadyEvent( primaryStage)); //(2)
     }
