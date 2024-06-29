@@ -5,34 +5,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.AllAnimalsScreenController">
+<AnchorPane prefHeight="612.0" prefWidth="727.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.AllAnimalsScreenController">
 
         <padding>
             <Insets bottom="20" left="20" right="20" top="20" />
         </padding>
 
-        <VBox prefWidth="332.0" spacing="30">
+        <VBox prefHeight="572.0" prefWidth="727.0" spacing="30">
             <padding>
                 <Insets bottom="20" left="20" right="20" top="20" />
             </padding>
-            <HBox spacing="5">
+            <HBox alignment="TOP_CENTER" spacing="5">
                 <Label text="All animals">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>
                 </Label>
             </HBox>
-            <HBox spacing="5">
+            <HBox alignment="TOP_CENTER" spacing="5">
+                <Button onAction="#navigateToScreen" text="All Hospitals" userData="ALL_HOSPITALS_SCREEN" />
                 <Button onAction="#navigateToScreen" text="My Bookings" userData="MY_BOOKINGS_SCREEN" />
                 <Button onAction="#navigateToScreen" text="Create Animal" userData="CREATE_ANIMAL_SCREEN" />
                 <Button onAction="#navigateToScreen" text="Create Hospital" userData="CREATE_HOSPITAL_SCREEN" />
-                <Button onAction="#navigateToScreen" text="All Hospitals" userData="ALL_HOSPITALS_SCREEN" />
             </HBox>
             <HBox spacing="5">
-                <TableView fx:id="animalsTableView">
+                <TableView fx:id="animalsTableView" prefHeight="400.0" prefWidth="713.0">
                     <columns>
-                        <TableColumn fx:id="animalNameColumn" text="Animal Name" />
-                        <TableColumn fx:id="animalTypeColumn" text="Animal Category" />
+                        <TableColumn fx:id="animalNameColumn" prefWidth="258.0" text="Animal Name" />
+                        <TableColumn fx:id="animalTypeColumn" prefWidth="133.99998474121094" text="Animal Category" />
                     </columns>
                 </TableView>
             </HBox>
