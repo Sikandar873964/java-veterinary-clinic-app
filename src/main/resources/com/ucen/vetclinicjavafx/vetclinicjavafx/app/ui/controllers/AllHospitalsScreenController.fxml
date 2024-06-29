@@ -21,7 +21,7 @@
             </Label>
         </HBox>
         <HBox alignment="TOP_CENTER" spacing="5">
-            <Button onAction="#navigateToScreen" text="All Hospitals" userData="ALL_HOSPITALS_SCREEN" />
+            <Button onAction="#navigateToScreen" text="All Hospitals" textFill="#6b81c7" userData="ALL_HOSPITALS_SCREEN" />
             <Button onAction="#navigateToScreen" text="My Bookings" userData="MY_BOOKINGS_SCREEN" />
             <Button onAction="#navigateToScreen" text="Create Animal" userData="CREATE_ANIMAL_SCREEN" />
             <Button onAction="#navigateToScreen" text="Create Hospital" userData="CREATE_HOSPITAL_SCREEN" />

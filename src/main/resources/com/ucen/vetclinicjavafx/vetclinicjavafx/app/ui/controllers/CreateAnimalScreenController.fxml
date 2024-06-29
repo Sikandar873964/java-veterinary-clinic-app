@@ -1,54 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.collections.FXCollections?>
-<?import javafx.geometry.Insets?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<?import java.lang.String?>
-<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"  xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.CreateAnimalScreenController">
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="369.0" prefWidth="757.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.CreateAnimalScreenController">
     <padding>
-        <Insets top="20" left="20" right="20" bottom="20"></Insets>
+        <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-    <VBox spacing="10">
+    <VBox alignment="TOP_CENTER" prefHeight="369.0" prefWidth="749.0" spacing="10">
         <padding>
-            <Insets top="20" left="20" right="20" bottom="20"></Insets>
+            <Insets bottom="20" left="20" right="20" top="20" />
         </padding>
-                <HBox spacing="5">
+                <HBox alignment="TOP_CENTER" spacing="5">
                     <Label text="Create Animal">
                         <font>
-                            <Font name="System Bold" size="30.0"/>
+                            <Font name="System Bold" size="30.0" />
                         </font>
                     </Label>
                 </HBox>
-        <HBox spacing="5">
-            <Button text="My Bookings" onAction="#navigateToScreen" userData="MY_BOOKINGS_SCREEN"></Button>
-            <Button text="Create Animal" onAction="#navigateToScreen" userData="CREATE_ANIMAL_SCREEN"></Button>
-            <Button text="Create Hospital" onAction="#navigateToScreen" userData="CREATE_HOSPITAL_SCREEN"></Button>
-            <Button text="All Hospitals" onAction="#navigateToScreen" userData="ALL_HOSPITALS_SCREEN"></Button>
+        <HBox alignment="TOP_CENTER" spacing="5">
+            <Button onAction="#navigateToScreen" text="My Bookings" userData="MY_BOOKINGS_SCREEN" />
+            <Button onAction="#navigateToScreen" text="Create Animal" textFill="#6b81c7" userData="CREATE_ANIMAL_SCREEN" />
+            <Button onAction="#navigateToScreen" text="Create Hospital" userData="CREATE_HOSPITAL_SCREEN" />
+            <Button onAction="#navigateToScreen" text="All Hospitals" userData="ALL_HOSPITALS_SCREEN" />
         </HBox>
-                <HBox spacing="5">
-                    <Label text="Animal Name"/>
-                    <TextField fx:id="animalName"/>
+                <HBox alignment="TOP_CENTER" spacing="5">
+                    <Label text="Animal Name" />
+                    <TextField fx:id="animalName" />
                 </HBox>
-                <HBox spacing="5">
-                    <Label text="Animal Category"/>
-                    <ChoiceBox value="FARM_ANIMAL" fx:id="animalCategory">
+                <HBox alignment="TOP_CENTER" spacing="5">
+                    <Label text="Animal Category" />
+                    <ChoiceBox fx:id="animalCategory" value="FARM_ANIMAL">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
-                                <String
-                                        fx:value="FARM_ANIMAL"/>
-                                <String fx:value="PET"/>
-                                <String fx:value="ZOO"/>
-                                <String fx:value="WILD"/>
+                                <String fx:value="FARM_ANIMAL" />
+                                <String fx:value="PET" />
+                                <String fx:value="ZOO" />
+                                <String fx:value="WILD" />
                             </FXCollections>
                         </items>
                     </ChoiceBox>
                 </HBox>
-                <HBox spacing="5">
-                    <Button text="Create Animal" onAction="#createAnimal"></Button>
+                <HBox alignment="TOP_CENTER" spacing="5">
+                    <Button onAction="#createAnimal" text="Create Animal" />
                 </HBox>
 
         </VBox>
