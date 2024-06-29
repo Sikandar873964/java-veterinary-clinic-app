@@ -32,21 +32,9 @@ public class VetClinicSpringBootJavaFXApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         System.out.println("Starting applicatino");
-//        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-//        Stage stage=primaryStage;
-//        Scene scene = null;
-//        try {
-//            scene = new Scene(fxmlLoader.load(), 320, 240);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        stage.setTitle("Hello!");
-//        stage.setScene(scene);
-//        stage.show();
         primaryStage.setMaximized(true);
 
         HospitalService hospitalService=context.getBean(HospitalService.class);
-//        hospitalService.list();
         context.publishEvent(new StageReadyEvent( primaryStage)); //(2)
     }
 
