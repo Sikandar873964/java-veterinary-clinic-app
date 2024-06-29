@@ -43,6 +43,7 @@ public class VetClinicSpringBootJavaFXApplication extends Application {
 //        stage.setTitle("Hello!");
 //        stage.setScene(scene);
 //        stage.show();
+        primaryStage.setMaximized(true);
 
         HospitalService hospitalService=context.getBean(HospitalService.class);
 //        hospitalService.list();
