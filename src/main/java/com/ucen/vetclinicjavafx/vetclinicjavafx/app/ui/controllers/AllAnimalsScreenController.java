@@ -18,6 +18,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 
+/**
+ * The type All animals screen controller.
+ */
 @Component
 @FxmlView
 public class AllAnimalsScreenController extends BaseViewController {
@@ -28,16 +31,28 @@ public class AllAnimalsScreenController extends BaseViewController {
     @Autowired
     private AnimalService animalService;
 
+    /**
+     * The Animals table view.
+     */
     @FXML
     protected TableView<Animal> animalsTableView;
+    /**
+     * The Animal name column.
+     */
     @FXML
     protected TableColumn<Animal, String> animalNameColumn;
+    /**
+     * The Animal type column.
+     */
     @FXML
     protected TableColumn<Animal, AnimalType> animalTypeColumn;
 
 
     private ObservableList<Animal> animalsObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         animalNameColumn.setCellValueFactory(new PropertyValueFactory<>("animalName"));
         animalTypeColumn.setCellValueFactory(new PropertyValueFactory<>("animalType"));
