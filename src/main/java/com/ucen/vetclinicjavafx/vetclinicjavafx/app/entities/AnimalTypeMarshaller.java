@@ -2,6 +2,9 @@ package com.ucen.vetclinicjavafx.vetclinicjavafx.app.entities;
 
 import jakarta.persistence.AttributeConverter;
 
+/**
+ * The type Animal type marshaller.
+ */
 public class AnimalTypeMarshaller implements AttributeConverter<AnimalType, String> {
 
     @Override
