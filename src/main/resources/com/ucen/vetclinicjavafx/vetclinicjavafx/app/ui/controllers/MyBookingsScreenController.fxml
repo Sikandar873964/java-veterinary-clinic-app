@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.MyBookingsScreenController">
+<AnchorPane prefHeight="572.0" prefWidth="669.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.MyBookingsScreenController">
     <padding>
         <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
@@ -13,22 +13,22 @@
         <padding>
             <Insets bottom="20" left="20" right="20" top="20" />
         </padding>
-        <HBox>
+        <HBox alignment="TOP_CENTER">
             <Label text="My Bookings Screen">
                 <font>
                     <Font name="System Bold" size="30.0" />
                 </font>
             </Label>
         </HBox>
-        <HBox spacing="5">
-            <Button text="My Bookings" onAction="#navigateToScreen" userData="MY_BOOKINGS_SCREEN"></Button>
-            <Button text="Create Animal" onAction="#navigateToScreen" userData="CREATE_ANIMAL_SCREEN"></Button>
-            <Button text="Create Hospital" onAction="#navigateToScreen" userData="CREATE_HOSPITAL_SCREEN"></Button>
-            <Button text="All Hospitals" onAction="#navigateToScreen" userData="ALL_HOSPITALS_SCREEN"></Button>
+        <HBox alignment="TOP_CENTER" spacing="5">
+            <Button onAction="#navigateToScreen" text="All Hospitals" userData="ALL_HOSPITALS_SCREEN" />
+            <Button onAction="#navigateToScreen" text="My Bookings" textFill="#6b81c7" userData="MY_BOOKINGS_SCREEN" />
+            <Button onAction="#navigateToScreen" text="Create Animal" userData="CREATE_ANIMAL_SCREEN" />
+            <Button onAction="#navigateToScreen" text="Create Hospital" userData="CREATE_HOSPITAL_SCREEN" />
         </HBox>
-        <HBox>
+        <HBox alignment="TOP_CENTER">
 <!--            <Region gro-->
-            <TableView HBox.hgrow="ALWAYS" fx:id="hospitalBookingsTableView">
+            <TableView fx:id="hospitalBookingsTableView" prefHeight="400.0" prefWidth="875.0" HBox.hgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="customerTableColumn" text="Customer" />
                     <TableColumn fx:id="hospitalNameTableColumn" text="Hospital Name" />

@@ -1,60 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<?import javafx.geometry.Insets?>
-<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"  xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.CreateHospitalScreenController">
+<?import javafx.scene.text.*?>
+
+<AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.CreateHospitalScreenController">
     <padding>
-        <Insets top="20" left="20" right="20" bottom="20"></Insets>
+        <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-    <VBox spacing="10">
+    <VBox alignment="TOP_CENTER" prefHeight="464.0" prefWidth="752.0" spacing="10">
         <padding>
-            <Insets top="20" left="20" right="20" bottom="20"></Insets>
+            <Insets bottom="20" left="20" right="20" top="20" />
         </padding>
-        <HBox spacing="5">
+        <HBox alignment="TOP_CENTER" spacing="5">
             <Label>Create Hospital
                 <font>
-                    <Font name="System Bold" size="30.0"/>
+                    <Font name="System Bold" size="30.0" />
                 </font>
             </Label>
         </HBox>
-        <HBox spacing="5">
-            <Button text="My Bookings" onAction="#navigateToScreen" userData="MY_BOOKINGS_SCREEN"></Button>
-            <Button text="Create Animal" onAction="#navigateToScreen" userData="CREATE_ANIMAL_SCREEN"></Button>
-            <Button text="Create Hospital" onAction="#navigateToScreen" userData="CREATE_HOSPITAL_SCREEN"></Button>
-            <Button text="All Hospitals" onAction="#navigateToScreen" userData="ALL_HOSPITALS_SCREEN"></Button>
+        <HBox alignment="TOP_CENTER" spacing="5">
+            <Button onAction="#navigateToScreen" text="All Hospitals" userData="ALL_HOSPITALS_SCREEN" />
+            <Button onAction="#navigateToScreen" text="My Bookings" userData="MY_BOOKINGS_SCREEN" />
+            <Button onAction="#navigateToScreen" text="Create Animal" userData="CREATE_ANIMAL_SCREEN" />
+            <Button onAction="#navigateToScreen" text="Create Hospital" textFill="#6b81c7" userData="CREATE_HOSPITAL_SCREEN" />
         </HBox>
-        <HBox spacing="5">
+        <HBox alignment="TOP_CENTER" spacing="5">
             <Label>Hospital Name</Label>
-            <TextField fx:id="hospitalName"/>
+            <TextField fx:id="hospitalName" />
         </HBox>
-        <HBox spacing="5">
+        <HBox alignment="TOP_CENTER" prefHeight="26.0" prefWidth="565.0" spacing="5">
             <Label>Hospital Description</Label>
-            <TextField fx:id="hospitalDescription"/>
+            <TextField fx:id="hospitalDescription" />
         </HBox>
-        <HBox spacing="5">
+        <HBox alignment="TOP_CENTER" spacing="5">
             <Label>Start time</Label>
             <!-- Spinner for selecting hours -->
-            <Spinner fx:id="startTimeHourSpinner" maxWidth="100"/>
+            <Spinner fx:id="startTimeHourSpinner" maxWidth="100" />
 
             <!-- Spinner for selecting minutes -->
-            <Spinner fx:id="startTimeMinuteSpinner" maxWidth="100"/>
+            <Spinner fx:id="startTimeMinuteSpinner" maxWidth="100" />
         </HBox>
-        <HBox spacing="5">
+        <HBox alignment="TOP_CENTER" spacing="5">
             <Label>End time</Label>
             <!-- Spinner for selecting hours -->
-            <Spinner fx:id="endTimeHourSpinner" maxWidth="100"/>
+            <Spinner fx:id="endTimeHourSpinner" maxWidth="100" />
 
             <!-- Spinner for selecting minutes -->
-            <Spinner fx:id="endTimeMinuteSpinner" maxWidth="100"/>
+            <Spinner fx:id="endTimeMinuteSpinner" maxWidth="100" />
         </HBox>
-        <HBox spacing="5">
-            <Button text="Create" onAction="#createHospital">
+        <HBox alignment="TOP_CENTER" spacing="5">
+            <Button onAction="#createHospital" text="Create">
                 <font>
-                    <Font size="15.0"/>
+                    <Font size="15.0" />
                 </font>
             </Button>
         </HBox>
