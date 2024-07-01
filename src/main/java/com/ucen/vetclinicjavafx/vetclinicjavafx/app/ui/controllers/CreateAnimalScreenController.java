@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
+/**
+ * The type Create animal screen controller.
+ */
 @Component
 @FxmlView
 public class CreateAnimalScreenController extends BaseViewController {
@@ -29,6 +32,9 @@ public class CreateAnimalScreenController extends BaseViewController {
     private ChoiceBox<String> animalCategory;
 
 
+    /**
+     * Create animal.
+     */
     @FXML
     protected void createAnimal() {
         Animal animal =

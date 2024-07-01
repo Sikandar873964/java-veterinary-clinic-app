@@ -15,6 +15,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalTime;
 
 
+/**
+ * The type Create hospital screen controller.
+ */
 @Component
 @FxmlView
 public class CreateHospitalScreenController extends BaseViewController {
@@ -39,6 +42,9 @@ public class CreateHospitalScreenController extends BaseViewController {
     @FXML
     private TextField hospitalName;
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         SpinnerValueFactory<Integer> startTimeHourFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, LocalTime.now().getHour());
@@ -59,6 +65,10 @@ public class CreateHospitalScreenController extends BaseViewController {
         endTimeMinuteSpinner.setValueFactory(endTimeMinuteFactory);
 
     }
+
+    /**
+     * Create hospital.
+     */
     @FXML
     protected void createHospital() {
         Hospital hospital = hospitalUtils.createHospital(hospitalName.getText(), hospitalDescription.getText(),

@@ -11,6 +11,9 @@ import net.rgielen.fxweaver.core.FxmlView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * The type User login screen controller.
+ */
 @Component
 @FxmlView
 public class UserLoginScreenController extends BaseViewController {
@@ -19,14 +22,23 @@ public class UserLoginScreenController extends BaseViewController {
     @Autowired
     private AccountManager accountManager;
 
+    /**
+     * The Email id.
+     */
     @FXML
     protected TextField emailId;
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         emailId.setText("test@gmail.com");
     }
 
 
+    /**
+     * Sets user account and login.
+     */
     @FXML
     public void setUserAccountAndLogin() {
         String email = emailId.getText();

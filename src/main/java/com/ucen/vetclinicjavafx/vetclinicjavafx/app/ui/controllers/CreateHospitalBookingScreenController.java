@@ -30,6 +30,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * The type Create hospital booking screen controller.
+ */
 @Component
 @FxmlView
 public class CreateHospitalBookingScreenController extends BaseViewController {
@@ -91,14 +94,27 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
     private ObservableList<Animal> animalsObservableList = FXCollections.observableArrayList();
     private ObservableList<HospitalBookingItem> hospitalBookingItemObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Gets hospital.
+     *
+     * @return the hospital
+     */
     public Hospital getHospital() {
         return hospital;
     }
 
+    /**
+     * Sets hospital.
+     *
+     * @param hospital the hospital
+     */
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         setHospital(accountManager.getCurrentHospital());
 
@@ -167,11 +183,17 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         return dateTime;
     }
 
+    /**
+     * Gets a ll animals.
+     */
     protected void getALlAnimals() {
         Page<Animal> animals = animalService.findAllAnimals(null, null, null);
         animalsObservableList.addAll(animals.getContent());
     }
 
+    /**
+     * Create hospital booking.
+     */
     @FXML
     protected void createHospitalBooking() {
         HospitalBooking hospitalBooking = hospitalUtils.createHospitalBooking(accountManager.getCurrentHospital(),
@@ -193,6 +215,9 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         stageManager.changeScene(stageManager.getControllerScene(MyBookingsScreenController.class));
     }
 
+    /**
+     * Add hospital booking item.
+     */
     @FXML
     protected void addHospitalBookingItem() {
         boolean needsAdditionalAssistantValue = needsAdditionalAssistant.isSelected();
@@ -211,6 +236,9 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         clearItemForm();
     }
 
+    /**
+     * Clear item form.
+     */
     protected void clearItemForm() {
         longDistance.setSelected(false);
         additionalSurCharge.setSelected(false);

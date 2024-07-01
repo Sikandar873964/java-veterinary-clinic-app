@@ -10,18 +10,35 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * The type Base view controller.
+ */
 public abstract class BaseViewController {
 
+    /**
+     * The Stage manager.
+     */
     @Autowired
     protected StageManager stageManager;
+    /**
+     * The Date time utils.
+     */
     @Autowired
     protected DateTimeUtils dateTimeUtils;
 
+    /**
+     * Initialize controller.
+     */
     @PostConstruct
     public void initializeController() {
 
     }
 
+    /**
+     * Navigate to screen.
+     *
+     * @param event the event
+     */
     @FXML
     public void navigateToScreen(ActionEvent event){
         Node node = (Node) event.getSource() ;

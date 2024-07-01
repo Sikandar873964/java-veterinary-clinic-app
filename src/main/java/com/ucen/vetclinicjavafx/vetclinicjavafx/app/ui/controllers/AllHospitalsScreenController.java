@@ -19,6 +19,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 
 
+/**
+ * The type All hospitals screen controller.
+ */
 @Component
 @FxmlView
 public class AllHospitalsScreenController extends BaseViewController {
@@ -27,17 +30,32 @@ public class AllHospitalsScreenController extends BaseViewController {
     @Autowired
     private AccountManager accountManager;
 
+    /**
+     * The Hospitals table view.
+     */
     @FXML
     protected TableView<Hospital> hospitalsTableView;
+    /**
+     * The Hospital string table column.
+     */
     @FXML
     protected TableColumn<Hospital, String> hospitalStringTableColumn;
+    /**
+     * The Hospital start time table column.
+     */
     @FXML
     protected TableColumn<Hospital, LocalDateTime> hospitalStartTimeTableColumn;
+    /**
+     * The Hospital end time table column.
+     */
     @FXML
     protected TableColumn<Hospital, LocalDateTime> hospitalEndTimeTableColumn;
 
     private ObservableList<Hospital> hospitalsObservableList = FXCollections.observableArrayList();
 
+    /**
+     * Initialize.
+     */
     public void initialize() {
         hospitalsObservableList.clear();
         hospitalStartTimeTableColumn.setCellValueFactory(new PropertyValueFactory<>("hospitalStartTime"));
@@ -68,26 +86,44 @@ public class AllHospitalsScreenController extends BaseViewController {
         hospitalsObservableList.addAll(hospitals.getContent());
     }
 
+    /**
+     * Navigate to my bookings screen.
+     */
     @FXML
     public void navigateToMyBookingsScreen() {
         stageManager.changeScene(stageManager.getControllerScene(MyBookingsScreenController.class));
     }
 
+    /**
+     * Navigate to all animals screen.
+     */
     @FXML
     public void navigateToAllAnimalsScreen() {
         stageManager.changeScene(stageManager.getControllerScene(AllAnimalsScreenController.class));
     }
 
+    /**
+     * Navigate to all hospitals screen.
+     */
     @FXML
     public void navigateToAllHospitalsScreen() {
         stageManager.changeScene(stageManager.getControllerScene(AllHospitalsScreenController.class));
     }
 
+    /**
+     * Navigate to screen.
+     *
+     * @param <C>             the type parameter
+     * @param controllerClass the controller class
+     */
     @FXML
     public <C>void navigateToScreen(Class<C> controllerClass) {
         stageManager.changeScene(stageManager.getControllerScene(controllerClass));
     }
 
+    /**
+     * Navigate to create screen.
+     */
     @FXML
     public void navigateToCreateScreen() {
         stageManager.changeScene(stageManager.getControllerScene(AllHospitalsScreenController.class));
