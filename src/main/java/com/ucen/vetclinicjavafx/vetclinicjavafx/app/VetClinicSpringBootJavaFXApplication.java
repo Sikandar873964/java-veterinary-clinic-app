@@ -11,6 +11,9 @@ import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
+/**
+ * The type Vet clinic spring boot java fx application.
+ */
 public class VetClinicSpringBootJavaFXApplication extends Application {
 
     private ConfigurableApplicationContext context;

@@ -3,9 +3,19 @@ package com.ucen.vetclinicjavafx.vetclinicjavafx.app.utils;
 import com.ucen.vetclinicjavafx.vetclinicjavafx.app.entities.*;
 import org.springframework.stereotype.Component;
 
+/**
+ * The type Animal utils.
+ */
 @Component
 public class AnimalUtils {
 
+    /**
+     * Create animal object animal.
+     *
+     * @param animalName the animal name
+     * @param animalType the animal type
+     * @return the animal
+     */
     public Animal createAnimalObject(String animalName, AnimalType animalType) {
         Animal animal;
         switch (animalType) {
