@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+/**
+ * The type Primary stage initializer.
+ */
 @Component
 public class PrimaryStageInitializer implements ApplicationListener<StageReadyEvent> {
 
@@ -18,6 +21,12 @@ public class PrimaryStageInitializer implements ApplicationListener<StageReadyEv
     private final StageManager stageManager;
 
 
+    /**
+     * Instantiates a new Primary stage initializer.
+     *
+     * @param fxWeaver     the fx weaver
+     * @param stageManager the stage manager
+     */
     @Autowired
     public PrimaryStageInitializer(FxWeaver fxWeaver, StageManager stageManager) {
         this.fxWeaver = fxWeaver;
