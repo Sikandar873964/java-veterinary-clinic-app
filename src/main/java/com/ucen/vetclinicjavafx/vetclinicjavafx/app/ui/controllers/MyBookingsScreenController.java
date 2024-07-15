@@ -19,9 +19,6 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-/**
- * The type My bookings screen controller.
- */
 @Component
 @FxmlView
 public class MyBookingsScreenController extends BaseViewController {
@@ -31,44 +28,22 @@ public class MyBookingsScreenController extends BaseViewController {
     @Autowired
     private AccountManager accountManager;
 
-    /**
-     * The Hospital bookings table view.
-     */
     @FXML
     protected TableView<HospitalBooking> hospitalBookingsTableView;
-    /**
-     * The Customer table column.
-     */
     @FXML
     protected TableColumn<HospitalBooking, String> customerTableColumn;
-    /**
-     * The Hospital name table column.
-     */
     @FXML
     protected TableColumn<HospitalBooking, String> hospitalNameTableColumn;
-    /**
-     * The Hospital booking start time table column.
-     */
     @FXML
     protected TableColumn<HospitalBooking, LocalDateTime> hospitalBookingStartTimeTableColumn;
-    /**
-     * The Hospital booking end time table column.
-     */
     @FXML
     protected TableColumn<HospitalBooking, LocalDateTime> hospitalBookingEndTimeTableColumn;
-    /**
-     * The Price column.
-     */
     @FXML
     protected TableColumn<HospitalBooking, Double> priceColumn;
 
     private ObservableList<HospitalBooking> hospitalBookingsObservableList = FXCollections.observableArrayList();
 
-    /**
-     * Initialize.
-     */
     public void initialize() {
-        hospitalBookingsObservableList.clear();
         customerTableColumn.setCellValueFactory(
                 cellData -> new SimpleStringProperty(cellData.getValue().getCustomer().getEmailId()));
         hospitalBookingStartTimeTableColumn.setCellValueFactory(new PropertyValueFactory<>("endTime"));
@@ -81,11 +56,6 @@ public class MyBookingsScreenController extends BaseViewController {
         getHospitalBookingsByCustomer(accountManager.getCurrentCustomer());
     }
 
-    /**
-     * Gets hospital bookings by customer.
-     *
-     * @param customer the customer
-     */
     public void getHospitalBookingsByCustomer(Customer customer) {
         Page<HospitalBooking> hospitalBookings =
                 hospitalService.getHospitalBookingsByCustomer(customer, null, null, null);

@@ -30,9 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * The type Create hospital booking screen controller.
- */
 @Component
 @FxmlView
 public class CreateHospitalBookingScreenController extends BaseViewController {
@@ -64,6 +61,8 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
     private Spinner<Integer> endTimeMinuteSpinner;
 
     @FXML
+    private ChoiceBox<Hospital> hospitalChoiceBox;
+    @FXML
     private ChoiceBox<Animal> animalChoiceBox;
     @FXML
     private TextArea reasonTextArea;
@@ -91,32 +90,19 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
 
     private List<HospitalBookingItem> hospitalBookingItems = new ArrayList<>();
 
+    private ObservableList<Hospital> hospitalObservableList=FXCollections.observableArrayList();
     private ObservableList<Animal> animalsObservableList = FXCollections.observableArrayList();
     private ObservableList<HospitalBookingItem> hospitalBookingItemObservableList = FXCollections.observableArrayList();
 
-    /**
-     * Gets hospital.
-     *
-     * @return the hospital
-     */
     public Hospital getHospital() {
         return hospital;
     }
 
-    /**
-     * Sets hospital.
-     *
-     * @param hospital the hospital
-     */
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
 
-    /**
-     * Initialize.
-     */
     public void initialize() {
-        setHospital(accountManager.getCurrentHospital());
 
         SpinnerValueFactory<Integer> startTimeHourFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, LocalTime.now().getHour());
@@ -135,6 +121,24 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         SpinnerValueFactory<Integer> endTimeMinuteFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, LocalTime.now().getMinute());
         endTimeMinuteSpinner.setValueFactory(endTimeMinuteFactory);
+
+        hospitalChoiceBox.setItems(hospitalObservableList);
+        hospitalChoiceBox.setConverter(new StringConverter<Hospital>() {
+            @Override
+            public String toString(Hospital object) {
+                if (object != null) {
+                    return StringUtils.defaultIfEmpty(object.getHospitalName(), "Unknown");
+                }
+                return "";
+            }
+
+            @Override
+            public Hospital fromString(String string) {
+                Hospital animal = new Hospital();
+                animal.setHospitalName(string);
+                return animal;
+            }
+        });
 
 
         animalChoiceBox.setItems(animalsObservableList);
@@ -166,6 +170,7 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         hospitalBookingItemObservableList.setAll(hospitalBookingItems);
 
         getALlAnimals();
+        getAllHospitals();
     }
 
     private LocalDateTime getLocalDateTimeFromPickers(DatePicker datePicker, Spinner<Integer> hourSpinner,
@@ -183,23 +188,27 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         return dateTime;
     }
 
-    /**
-     * Gets a ll animals.
-     */
     protected void getALlAnimals() {
         Page<Animal> animals = animalService.findAllAnimals(null, null, null);
         animalsObservableList.addAll(animals.getContent());
     }
 
-    /**
-     * Create hospital booking.
-     */
+    protected void getAllHospitals(){
+        Page<Hospital> hospitals=hospitalService.findAllHospitals(null,null,null);
+        hospitalObservableList.addAll(hospitals.getContent());
+    }
+
     @FXML
     protected void createHospitalBooking() {
-        HospitalBooking hospitalBooking = hospitalUtils.createHospitalBooking(accountManager.getCurrentHospital(),
-                accountManager.getCurrentCustomer(),
-                getLocalDateTimeFromPickers(startDatePicker, startTimeHourSpinner, startTimeMinuteSpinner),
-                getLocalDateTimeFromPickers(endDatePicker, endTimeHourSpinner, endTimeMinuteSpinner));
+
+        Hospital hospital = hospitalChoiceBox.getSelectionModel().getSelectedItem();
+        HospitalBooking hospitalBooking = HospitalBooking.HospitalBookingBuilder.aHospitalBooking()
+                .withHospital(hospital)
+                .withCustomer(accountManager.getCurrentCustomer())
+                .withStartTime(getLocalDateTimeFromPickers(startDatePicker, startTimeHourSpinner, startTimeMinuteSpinner))
+                .withEndTime(getLocalDateTimeFromPickers(endDatePicker, endTimeHourSpinner, endTimeMinuteSpinner))
+                .build();
+
         hospitalBooking = hospitalService.createHospitalBooking(hospitalBooking);
 
         if (CollectionUtils.isNotEmpty(hospitalBookingItems)) {
@@ -215,9 +224,6 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         stageManager.changeScene(stageManager.getControllerScene(MyBookingsScreenController.class));
     }
 
-    /**
-     * Add hospital booking item.
-     */
     @FXML
     protected void addHospitalBookingItem() {
         boolean needsAdditionalAssistantValue = needsAdditionalAssistant.isSelected();
@@ -227,8 +233,13 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         String reason = reasonTextArea.getText();
 
         HospitalBookingItem hospitalBookingItem =
-                hospitalUtils.createHospitalBookingItemObject(animal, reason, longDistanceValue,
-                        additionalSurChargeValue, needsAdditionalAssistantValue);
+                HospitalBookingItem.HospitalBookingItemBuilder.aHospitalBookingItem()
+                        .withAnimal(animal)
+                        .withReason(reason)
+                        .withLongDistance(longDistanceValue)
+                        .withAdditionalSurCharge(additionalSurChargeValue)
+                        .withNeedsAdditionalAssistant(needsAdditionalAssistantValue)
+                        .build();
 
         hospitalBookingItemObservableList.add(hospitalBookingItem);
         hospitalBookingItems.add(hospitalBookingItem);
@@ -236,13 +247,13 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         clearItemForm();
     }
 
-    /**
-     * Clear item form.
-     */
     protected void clearItemForm() {
         longDistance.setSelected(false);
         additionalSurCharge.setSelected(false);
         animalChoiceBox.setValue(null);
         needsAdditionalAssistant.setSelected(false);
+        reasonTextArea.setText(null);
     }
+
+
 }
