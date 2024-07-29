@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
 <ScrollPane xmlns:fx="http://javafx.com/fxml/1" fitToWidth="true" fitToHeight="true"
             fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.CreateHospitalBookingScreenController">
     <AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
@@ -17,8 +17,9 @@
             <padding>
                 <Insets top="20" left="20" right="20" bottom="20"></Insets>
             </padding>
+
             <HBox spacing="5">
-                <Label text="Create Booking">
+                <Label text="Create Booking" fx:id="hospitalBookingLabel">
                     <font>
                         <Font name="System Bold" size="30.0"/>
                     </font>
@@ -30,32 +31,78 @@
 
             </HBox>
             <HBox spacing="5">
-                <Label text="Start Time"></Label>
-                <!-- DatePicker for selecting the date -->
-                <DatePicker fx:id="startDatePicker"/>
-
-                <!-- Spinner for selecting hours -->
-                <Spinner fx:id="startTimeHourSpinner" maxWidth="100"/>
-
-                <!-- Spinner for selecting minutes -->
-                <Spinner fx:id="startTimeMinuteSpinner" maxWidth="100"/>
+                <Label text="Booking Details">
+                    <font>
+                        <Font name="System Bold" size="20.0"/>
+                    </font>
+                </Label>
             </HBox>
+            <HBox>
+                <VBox spacing="5">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20"></Insets>
+                    </padding>
+                    <HBox spacing="5">
+                        <Label text="Holder Details">
+                            <font>
+                                <Font name="System Bold" size="15.0"/>
+                            </font>
+                        </Label>
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label text="First Name"></Label>
+                        <TextField fx:id="holderFirstName"></TextField>
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label text="Last Name"></Label>
+                        <TextField fx:id="holderLastName"></TextField>
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label text="Address"></Label>
+                        <TextField fx:id="holderAddress"></TextField>
+                    </HBox>
+                </VBox>
+                <VBox spacing="5">
+                    <padding>
+                        <Insets top="20" left="20" right="20" bottom="20"></Insets>
+                    </padding>
+                    <HBox spacing="5">
+                        <Label text="Date and Time">
+                            <font>
+                                <Font name="System Bold" size="15.0"/>
+                            </font>
+                        </Label>
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label text="Date"></Label>
+                        <!-- DatePicker for selecting the date -->
+                        <DatePicker fx:id="startDatePicker"/>
+
+                    </HBox>
+                    <HBox spacing="5" alignment="CENTER_LEFT">
+                        <Label text="Start Time"></Label>
+                        <!-- Spinner for selecting hours -->
+                        <Spinner fx:id="startTimeHourSpinner" maxWidth="100"/>
+                        <!-- Spinner for selecting minutes -->
+                        <Spinner fx:id="startTimeMinuteSpinner" maxWidth="100"/>
+
+                    </HBox>
+
+                </VBox>
+            </HBox>
+
             <HBox spacing="5">
-                <Label text="End Time"></Label>
-                <!-- DatePicker for selecting the date -->
-                <DatePicker fx:id="endDatePicker"/>
-
-                <!-- Spinner for selecting hours -->
-                <Spinner fx:id="endTimeHourSpinner" maxWidth="100"/>
-
-                <!-- Spinner for selecting minutes -->
-                <Spinner fx:id="endTimeMinuteSpinner" maxWidth="100"/>
+                <Label text="Animal Details">
+                    <font>
+                        <Font name="System Bold" size="15.0"/>
+                    </font>
+                </Label>
             </HBox>
             <HBox spacing="5">
                 <VBox>
                     <HBox spacing="5">
-                        <Label>Hospital</Label>
-                        <ChoiceBox fx:id="hospitalChoiceBox">
+                        <Label>Animal Type-</Label>
+                        <ChoiceBox fx:id="animalTypeChoiceBox">
                         </ChoiceBox>
                     </HBox>
                     <HBox spacing="5">
@@ -64,7 +111,11 @@
                         </ChoiceBox>
                     </HBox>
                     <HBox spacing="5">
-                        <Label>Reason</Label>
+                        <Label>Animal Name</Label>
+                        <TextField fx:id="animalNameTextField"></TextField>
+                    </HBox>
+                    <HBox spacing="5">
+                        <Label>Health Issue</Label>
                         <TextArea fx:id="reasonTextArea"></TextArea>
                     </HBox>
                     <HBox spacing="5">
@@ -80,13 +131,14 @@
                         <CheckBox fx:id="longDistance"></CheckBox>
                     </HBox>
                     <HBox spacing="5">
-                        <Button text="Add Item" onAction="#addHospitalBookingItem"></Button>
+                        <Button text="Add Item" onAction="#validateHospitalBookingItemAndAdd"></Button>
                     </HBox>
                 </VBox>
             </HBox>
             <HBox spacing="5">
                 <TableView fx:id="hospitalBookingItemsTable">
                     <columns>
+                        <TableColumn text="Name" fx:id="animalNameColumn"></TableColumn>
                         <TableColumn text="Animal" fx:id="animalColumn"></TableColumn>
                         <TableColumn text="Reason" fx:id="reasonColumn"></TableColumn>
                         <TableColumn text="Needs Additional Assistant"
@@ -94,11 +146,12 @@
                         <TableColumn text="Additional Surcharge" fx:id="additionalSurChargeColumn"></TableColumn>
                         <TableColumn text="Long Distance" fx:id="longDistanceColumn"></TableColumn>
                         <TableColumn text="Price" fx:id="priceColumn"></TableColumn>
+                        <TableColumn text="Actions" fx:id="actionsColumn"></TableColumn>
                     </columns>
                 </TableView>
             </HBox>
             <HBox spacing="5">
-                <Button text="Confirm booking" onAction="#createHospitalBooking"></Button>
+                <Button text="Confirm booking" onAction="#validateAndConfirmHospitalBooking"></Button>
             </HBox>
         </VBox>
 

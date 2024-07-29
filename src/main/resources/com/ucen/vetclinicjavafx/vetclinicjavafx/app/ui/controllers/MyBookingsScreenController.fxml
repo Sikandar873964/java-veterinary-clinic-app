@@ -1,44 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"  xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.MyBookingsScreenController">
+<?import javafx.scene.text.Font?>
+<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.MyBookingsScreenController">
     <padding>
-        <Insets bottom="20" left="20" right="20" top="20" />
+        <Insets bottom="20" left="20" right="20" top="20"/>
     </padding>
     <VBox spacing="10">
         <padding>
-            <Insets bottom="20" left="20" right="20" top="20" />
+            <Insets bottom="20" left="20" right="20" top="20"/>
         </padding>
         <HBox>
             <Label text="My Bookings Screen">
                 <font>
-                    <Font name="System Bold" size="30.0" />
+                    <Font name="System Bold" size="30.0"/>
                 </font>
             </Label>
         </HBox>
         <HBox spacing="5">
-            <Button text="Create Booking" onAction="#navigateToScreen" userData="CREATE_HOSPITAL_BOOKING_SCREEN"></Button>
+            <Button text="Create Booking" onAction="#navigateToScreen"
+                    userData="CREATE_HOSPITAL_BOOKING_SCREEN"></Button>
             <Button text="Logout" onAction="#logout"></Button>
 
         </HBox>
         <HBox>
-            <!--            <Region gro-->
-            <TableView HBox.hgrow="ALWAYS" fx:id="hospitalBookingsTableView">
-                <columns>
-                    <TableColumn fx:id="customerTableColumn" text="Customer" />
-                    <TableColumn fx:id="hospitalNameTableColumn" text="Hospital Name" />
-                    <TableColumn fx:id="hospitalBookingStartTimeTableColumn" text="Start Time" />
-                    <TableColumn fx:id="hospitalBookingEndTimeTableColumn" text="End Time" />
-                    <TableColumn fx:id="priceColumn" text="Price" />
-                </columns>
-                <columnResizePolicy>
-                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                </columnResizePolicy>
-            </TableView>
+            <TabPane fx:id="bookingTabPane">
+                <tabs>
+                    <Tab text="Upcoming Bookings" fx:id="upcomingBookingTab">
+                        <content>
+                            <!--            <Region gro-->
+                            <TableView HBox.hgrow="ALWAYS" fx:id="hospitalBookingsTableView">
+                                <columns>
+                                    <TableColumn fx:id="holderFirstNameTableColumn" text="First Name"/>
+                                    <TableColumn fx:id="holderLastNameTableColumn" text="Last Name"/>
+                                    <TableColumn fx:id="holderAddressTableColumn" text="Address"/>
+                                    <TableColumn fx:id="hospitalNameTableColumn" text="Hospital Name"/>
+                                    <TableColumn fx:id="hospitalBookingStartTimeTableColumn" text="Start Time"/>
+                                    <TableColumn fx:id="animalNamesTableColumn" text="Animals"/>
+                                    <TableColumn fx:id="priceColumn" text="Price"/>
+                                    <TableColumn fx:id="actionsColumn" text="Action"/>
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                </columnResizePolicy>
+                            </TableView>
+                        </content>
+                    </Tab>
+                    <Tab text="Past Bookings" fx:id="pastBookingTab">
+                        <content>
+                            <!--            <Region gro-->
+                            <TableView HBox.hgrow="ALWAYS" fx:id="pastHospitalBookingsTableView">
+                                <columns>
+                                    <TableColumn fx:id="pastHolderFirstNameTableColumn" text="First Name"/>
+                                    <TableColumn fx:id="pastHolderLastNameTableColumn" text="Last Name"/>
+                                    <TableColumn fx:id="pastHolderAddressTableColumn" text="Address"/>
+                                    <TableColumn fx:id="pastHospitalNameTableColumn" text="Past Hospital Name"/>
+                                    <TableColumn fx:id="pastHospitalBookingStartTimeTableColumn" text="Start Time"/>
+                                    <TableColumn fx:id="pastAnimalNamesTableColumn" text="Animals"/>
+                                    <TableColumn fx:id="pastPriceColumn" text="Price"/>
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                </columnResizePolicy>
+                            </TableView>
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+
+
         </HBox>
     </VBox>
 

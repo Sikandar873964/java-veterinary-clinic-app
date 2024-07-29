@@ -57,7 +57,6 @@ public class AllHospitalsScreenController extends BaseViewController {
      * Initialize.
      */
     public void initialize() {
-        hospitalsObservableList.clear();
         hospitalStartTimeTableColumn.setCellValueFactory(new PropertyValueFactory<>("hospitalStartTime"));
         hospitalEndTimeTableColumn.setCellValueFactory(new PropertyValueFactory<>("hospitalEndTime"));
         hospitalStringTableColumn.setCellValueFactory(new PropertyValueFactory<>("hospitalName"));

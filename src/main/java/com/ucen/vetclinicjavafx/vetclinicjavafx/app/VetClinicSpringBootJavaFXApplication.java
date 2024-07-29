@@ -35,7 +35,6 @@ public class VetClinicSpringBootJavaFXApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         System.out.println("Starting applicatino");
-        primaryStage.setMaximized(true);
 
         HospitalService hospitalService=context.getBean(HospitalService.class);
         context.publishEvent(new StageReadyEvent( primaryStage)); //(2)

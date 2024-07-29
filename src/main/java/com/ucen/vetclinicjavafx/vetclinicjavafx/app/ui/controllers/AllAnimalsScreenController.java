@@ -58,6 +58,7 @@ public class AllAnimalsScreenController extends BaseViewController {
         animalTypeColumn.setCellValueFactory(new PropertyValueFactory<>("animalType"));
         animalsTableView.setItems(animalsObservableList);
 
+
         getAllAnimals();
     }
 

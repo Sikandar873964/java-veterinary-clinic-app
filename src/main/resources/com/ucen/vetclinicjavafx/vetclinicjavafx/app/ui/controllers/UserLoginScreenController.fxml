@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<?import javafx.geometry.Insets?>
-<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"  xmlns="http://javafx.com/javafx/17.0.2-ea"
+<AnchorPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.ucen.vetclinicjavafx.vetclinicjavafx.app.ui.controllers.UserLoginScreenController">
     <padding>
         <Insets top="20" left="20" right="20" bottom="20"></Insets>
     </padding>
-    <VBox spacing="10">
+    <VBox spacing="10" alignment="BASELINE_CENTER">
         <padding>
             <Insets top="20" left="20" right="20" bottom="20"></Insets>
         </padding>
         <HBox spacing="5">
-            <Label text="Login Screen">
+            <Label fx:id="hospitalNameLabel" text="Hospital">
                 <font>
                     <Font name="System Bold" size="30.0"/>
                 </font>

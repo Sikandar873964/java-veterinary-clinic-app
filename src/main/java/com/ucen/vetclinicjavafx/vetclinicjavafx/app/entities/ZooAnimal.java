@@ -19,6 +19,6 @@ public class ZooAnimal extends Animal{
 
     @Override
     public Long getPrice() {
-        return 30l;
+        return 35l;
     }
 }

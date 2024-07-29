@@ -160,7 +160,7 @@ public class Animal {
      * @return the long
      */
     public Long getPrice(){
-        return 10l;
+        return 24l;
     }
 }
 

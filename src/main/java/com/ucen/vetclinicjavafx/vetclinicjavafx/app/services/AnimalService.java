@@ -1,6 +1,7 @@
 package com.ucen.vetclinicjavafx.vetclinicjavafx.app.services;
 
 import com.ucen.vetclinicjavafx.vetclinicjavafx.app.entities.Animal;
+import com.ucen.vetclinicjavafx.vetclinicjavafx.app.entities.AnimalType;
 import com.ucen.vetclinicjavafx.vetclinicjavafx.app.repos.AnimalRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -55,6 +56,20 @@ public class AnimalService extends AbstractService {
      */
     public Page<Animal> findAllAnimals(Integer page, Integer pageSize, Sort.Direction direction, String... properties) {
         return animalRepo.findAll(createPageableRequest(page, pageSize, direction, String.valueOf(properties)));
+    }
+
+    /**
+     * Gets animals by animal type.
+     *
+     * @param animalType the animal type
+     * @param page       the page
+     * @param pageSize   the page size
+     * @param direction  the direction
+     * @param properties the properties
+     * @return the animals by animal type
+     */
+    public Page<Animal> getAnimalsByAnimalType(AnimalType animalType, Integer page, Integer pageSize, Sort.Direction direction, String... properties) {
+        return animalRepo.getByAnimalType(animalType, createPageableRequest(page, pageSize, direction, String.valueOf(properties)));
     }
 }
 
