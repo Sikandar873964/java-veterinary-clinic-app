@@ -128,6 +128,13 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
      */
     public void initialize() {
 
+        startDatePicker.setValue(null);
+        holderFirstName.setText(null);
+        holderLastName.setText(null);
+        holderAddress.setText(null);
+
+        hospitalBookingItems.clear();;
+
         SpinnerValueFactory<Integer> startTimeHourFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, LocalTime.now().getHour());
         startTimeHourSpinner.setValueFactory(startTimeHourFactory);
@@ -185,6 +192,7 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         hospitalBookingItemsTable.setItems(hospitalBookingItemObservableList);
         animalColumn.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getAnimal().getAnimalName()));
         hospitalBookingItemObservableList.setAll(hospitalBookingItems);
+
 
         // Define the cell factory for the actionColumn
         actionsColumn.setCellFactory(new Callback<TableColumn<HospitalBookingItem, Void>, TableCell<HospitalBookingItem, Void>>() {
@@ -419,6 +427,10 @@ public class CreateHospitalBookingScreenController extends BaseViewController {
         animalChoiceBox.setValue(null);
         needsAdditionalAssistant.setSelected(false);
         reasonTextArea.setText(null);
+        animalNameTextField.setText(null);
+        animalTypeChoiceBox.setValue(null);
+
+
     }
 
     /**

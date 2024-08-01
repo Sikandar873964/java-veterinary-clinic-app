@@ -119,15 +119,15 @@
                         <TextArea fx:id="reasonTextArea"></TextArea>
                     </HBox>
                     <HBox spacing="5">
-                        <Label>Need Additional assistant</Label>
+                        <Label>Need Additional assistant(€5)</Label>
                         <CheckBox fx:id="needsAdditionalAssistant"></CheckBox>
                     </HBox>
                     <HBox spacing="5">
-                        <Label>Additional Surcharge</Label>
+                        <Label>Additional Surcharge (€10)</Label>
                         <CheckBox fx:id="additionalSurCharge"></CheckBox>
                     </HBox>
                     <HBox spacing="5">
-                        <Label>Long Distance</Label>
+                        <Label>Long Distance(€12)</Label>
                         <CheckBox fx:id="longDistance"></CheckBox>
                     </HBox>
                     <HBox spacing="5">
